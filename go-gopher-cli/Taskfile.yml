@@ -13,5 +13,9 @@ tasks:
 
     clean:
         desc: Remove all retrieved *.png files
+        dir: bin #Must mention the directory to be cleaned from
         cmds:
-            - powershell -Command "Remove-Item -Path *.png -Force"
+            - powershell -Command "Write-Host 'Current Directory:'; pwd"
+            - powershell -Command "Write-Host 'Listing PNG files before deletion:'; Get-ChildItem -Path *.png"
+            - powershell -Command "Write-Host 'Attempting to delete PNG files...'; Remove-Item -Path *.png -Force"
+            - powershell -Command "Write-Host 'Listing PNG files after deletion:'; Get-ChildItem -Path *.png"
